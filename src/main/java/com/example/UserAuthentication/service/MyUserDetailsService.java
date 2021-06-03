@@ -23,12 +23,12 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         System.out.println(userName);
-        UserDetailsImp user = userDetailsRepository.findByUserName(userName);
+        UserDetails user = userDetailsRepository.findByUserName(userName);
         System.out.println(user);
         if (user == null) {
             throw new UsernameNotFoundException(userName);
         }
-        return new User(user.getUserName(), user.getPassword(), List.of(new SimpleGrantedAuthority(user.getUserRole().toString())));
+        return user;
     }
 
 }

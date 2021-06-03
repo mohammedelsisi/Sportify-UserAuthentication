@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.AccessType;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Arrays;
@@ -17,7 +18,7 @@ import java.util.*;
 @Setter
 @AccessType(AccessType.Type.FIELD)
 @Table(name = "User_Credentials")
-public class UserDetailsImp {
+public class UserDetailsImp implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -28,4 +29,33 @@ public class UserDetailsImp {
     @Column(length = 20)
     private UserRole userRole;
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+       return List.of(new SimpleGrantedAuthority(this.getUserRole().toString()));
+    }
+
+    @Override
+    public String getUsername() {
+        return this.userName;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.UserAuthentication.util;
 
+import com.example.UserAuthentication.entity.UserDetailsImp;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -37,8 +38,10 @@ public class JwtUtil {
     }
 
     public String generateToken(UserDetails userDetails){
+        UserDetailsImp userDetailsImp = (UserDetailsImp) userDetails;
         Map<String , Object> claims = new HashMap<>();
-
+        claims.put("email",userDetailsImp.getEmail());
+        claims.put("role",userDetailsImp.getUserRole().toString());
         return createToken(claims , userDetails.getUsername());
     }
 
