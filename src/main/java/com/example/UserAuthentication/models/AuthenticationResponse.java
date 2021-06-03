@@ -1,4 +1,4 @@
-package models;
+package com.example.UserAuthentication.models;
 
 public class AuthenticationResponse {
 
