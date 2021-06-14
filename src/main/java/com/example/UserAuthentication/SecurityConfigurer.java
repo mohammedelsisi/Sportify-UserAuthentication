@@ -15,11 +15,13 @@ import org.springframework.web.cors.CorsConfigurationSource;
 
 @EnableWebSecurity
 public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
-    private final MyUserDetailsService myUserDetailsService;
-
-    public SecurityConfigurer(MyUserDetailsService myUserDetailsService) {
+    @Autowired
+    public void setMyUserDetailsService(MyUserDetailsService myUserDetailsService) {
         this.myUserDetailsService = myUserDetailsService;
     }
+
+    private MyUserDetailsService myUserDetailsService;
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
