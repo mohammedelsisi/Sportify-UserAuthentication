@@ -1,4 +1,4 @@
-package com.example.UserAuthentication.entity;
+package com.example.UserAuthentication.models.entity;
 
 import com.example.UserAuthentication.models.UserRole;
 import lombok.Getter;
@@ -9,7 +9,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.*;
 

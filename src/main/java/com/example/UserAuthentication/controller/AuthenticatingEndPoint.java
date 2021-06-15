@@ -29,6 +29,7 @@ public class AuthenticatingEndPoint {
         this.jwtUtil = jwtUtil;
         this.userDetailsService = userDetailsService;
         this.authenticationManager = authenticationManager;
+
     }
 
     @PostMapping("/authenticate")
@@ -44,6 +45,7 @@ public class AuthenticatingEndPoint {
         String jwt = jwtUtil.generateToken(userDetails);
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
     }
+
 
 
 

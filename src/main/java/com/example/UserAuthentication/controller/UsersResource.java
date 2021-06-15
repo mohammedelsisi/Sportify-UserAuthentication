@@ -25,7 +25,7 @@ public class UsersResource {
 
     @PostMapping
     public ResponseEntity<Object> saveSelected(@RequestBody UserDto userDetails, HttpServletRequest request) {
-        long id = myUserDetailsService.saveUser(userDetails);
+        long id = myUserDetailsService.saveUserAndCreateUserScore(userDetails);
         var httpHeaders = new HttpHeaders();
         httpHeaders.add("location", request.getRequestURL() + "/" + id);
         return ResponseEntity.status(HttpStatus.CREATED).headers(httpHeaders).build();

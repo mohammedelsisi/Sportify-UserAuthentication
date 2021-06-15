@@ -1,6 +1,6 @@
 package com.example.UserAuthentication.DAO;
 
-import com.example.UserAuthentication.entity.UserDetailsImp;
+import com.example.UserAuthentication.models.entity.UserDetailsImp;
 import com.example.UserAuthentication.models.dto.UserReturnedDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 

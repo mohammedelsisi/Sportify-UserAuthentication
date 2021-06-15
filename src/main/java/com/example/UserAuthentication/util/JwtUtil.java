@@ -1,6 +1,6 @@
 package com.example.UserAuthentication.util;
 
-import com.example.UserAuthentication.entity.UserDetailsImp;
+import com.example.UserAuthentication.models.entity.UserDetailsImp;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
